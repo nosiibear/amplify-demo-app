@@ -32,7 +32,7 @@ const Posts = async ({ params } : {params: { id: string } }) => {
         <h2>Title: {post?.title}</h2>
       </div>
 
-      {isSignedIn ? (
+      {isSignedIn && post != null ? (
         <AddComment
           addComment={addComment}
           paramsId={params.id}
