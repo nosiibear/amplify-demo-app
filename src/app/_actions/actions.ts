@@ -15,7 +15,7 @@ export async function deleteComment(formData: FormData) {
   console.log("errors deleting comment: ", errors);
 }
 
-export async function addComment(content: string, post: Schema["Post"]["type"], paramsId: string) {
+export async function addComment(content: string, post: Pick<Schema["Post"]["type"], 'title' | 'id'>, paramsId: string) {
   if(content.trim().length == 0) return;
   const {data: comment, errors} = await cookieBasedClient.models.Comment.create({
     postId: post.id,

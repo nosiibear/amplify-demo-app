@@ -11,7 +11,6 @@ const Post = ({
   post: Pick<Schema["Post"]["type"], 'title' | 'id'>;
   //post: Schema["Post"];
   onDelete: (id: string) => void;
-  idx: number;
   isSignedIn: boolean
 }) => {
   const router = useRouter();
