@@ -15,10 +15,10 @@ export async function deleteComment(formData: FormData) {
   console.log("errors deleting comment: ", errors);
 }
 
-export async function addComment(content: string, post: Schema["Post"], paramsId: string) {
+export async function addComment(content: string, post: Schema["Post"]["type"], paramsId: string) {
   if(content.trim().length == 0) return;
   const {data: comment, errors} = await cookieBasedClient.models.Comment.create({
-    post,
+    postId: post.id,
     content
   })
   console.log("got comment: ", comment)
